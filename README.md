@@ -27,7 +27,7 @@ cd server
 cp .env.example .env
 # edit .env: set MONGO_URI and a real JWT_SECRET
 npm install
-npm run dev        # starts on http://localhost:5000
+npm run dev        # starts on https://expenzy-hcpp.onrender.com
 ```
 
 ## 2. Frontend setup
@@ -38,7 +38,7 @@ npm install
 npm run dev         # starts on http://localhost:5173
 ```
 
-The Vite dev server proxies `/api` requests to `http://localhost:5000`
+The Vite dev server proxies `/api` requests to `https://expenzy-hcpp.onrender.com`
 (see `client/vite.config.js`), so no extra CORS config is needed in dev.
 
 ## 3. Open the app
