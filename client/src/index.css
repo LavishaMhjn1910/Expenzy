@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-ink text-paper font-body antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(82, 183, 136, 0.08), transparent 40%),
+      radial-gradient(circle at 85% 20%, rgba(227, 178, 60, 0.06), transparent 35%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: #52B788;
+    color: #0E1B18;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #E3B23C;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .amount {
+    @apply font-mono tabular-nums;
+  }
+
+  .card {
+    @apply bg-surface border border-hairline rounded-2xl shadow-card;
+  }
+
+  .btn-primary {
+    @apply bg-mint text-ink font-semibold rounded-xl px-4 py-2.5 transition
+      hover:bg-mintDark hover:text-paper active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent border border-hairline text-paper rounded-xl px-4 py-2.5 transition
+      hover:border-mint hover:text-mint active:scale-[0.98];
+  }
+
+  .input {
+    @apply w-full bg-ink border border-hairline rounded-xl px-3.5 py-2.5 text-paper placeholder:text-muted
+      focus:border-mint transition outline-none;
+  }
+
+  .label {
+    @apply block text-xs uppercase tracking-wider text-muted mb-1.5;
+  }
+
+  /* Ledger tape — perforated receipt-strip signature element */
+  .ledger-tape {
+    position: relative;
+    background: repeating-linear-gradient(
+      90deg,
+      #142822 0px,
+      #142822 78px,
+      #274238 78px,
+      #274238 79px
+    );
+  }
+
+  .ledger-tape::before,
+  .ledger-tape::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    width: 12px;
+    background-image: radial-gradient(circle, #0E1B18 5px, transparent 5.5px);
+    background-size: 12px 22px;
+    background-repeat: repeat-y;
+  }
+
+  .ledger-tape::before { left: -6px; }
+  .ledger-tape::after { right: -6px; }
+}
